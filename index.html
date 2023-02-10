@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+#background {
+  position: fixed;
+  z-index:-2;
+}
+
+#main {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+#header {
+  top:0;
+  left:0;
+  position:fixed;
+  width:100%;
+  height:11.5vh;
+  background-color:white;
+  box-shadow:0 0 10px black;
+  z-index:1;
+}
+
+#header-img {
+  float:left;
+  width:16vw;
+  margin-top:30px;
+  margin-left:10vw;
+  box-shadow: 0 0 20px black;
+}
+
+
+#nav-bar {
+  float:right;
+  margin-top:15px;
+  margin-right:45px;
+}
+
+.nav-link {
+  text-decoration:none;
+  text-transform:uppercase;
+  background:linear-gradient(180deg,rgb(150,150,180),rgb(25,25,127),rgb(50,50,150));
+  border-radius:50px;
+  width:500px;
+  margin-left:20px;
+  font-family:monospace;
+  letter-spacing:1.5px;
+  font-size:2vw;
+  font-weight:bold;
+  color:white;
+  padding:20px 35px 20px 35px;
+  box-shadow:0 0 5px black;
+}
+
+.nav-link:hover {
+  color:white;
+  background:rgb(35,35,62);
+  padding:28px 35px 28px 35px;
+  text-shadow:0 0 25px white, 0 0 10px white;
+  box-shadow:0 0 20px black, 0 0 10px black;
+  transition:all ease-in-out 200ms; 
+  z-index:2;
+}
+
+.nav-link-a {
+  display:inline-block;
+  list-style:none;
+  text-align:center;
+
+}
+
+#about-div {
+  padding-top:20vh;
+}
+
+#about-div-2 {
+  color:white;
+  width:40vw;
+  height:40vh;
+  margin:auto;
+  padding:30px;
+  border-radius:40px;
+  font-size:1.5vw;
+  word-spacing:0.2pvw;
+  text-align:justify;
+  line-height:35px;
+  background-color:rgba(0,0,0,0.5)
+}
+
+
+#about-us-span {
+  text-align:center;
+  font-size:3.5vw;
+}
+
+#video-div {
+  padding-top:20vh;
+    margin-top:20vh;
+}
+
+#video-div-2 {
+  width:35vw;
+  height:45vh;
+  padding:10px;
+  margin:auto;
+  border-style:solid;
+  border-width:5px;
+}
+
+#video {
+  width:35vw;
+  height:45vh;
+}
+
+#flex-box {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  width:70%;
+  margin-top:20vh;
+  padding-top:20vh;
+}
+
+.box-list {
+  list-style:none;
+  padding:0;
+}
+
+.plus{
+  font-size:50px;
+  font-weight:bold;
+}
+
+#box-1, #box-2, #box-3, #box-4 {
+  display:flex;
+  flex-direction:column;
+  color:rgba(255,255,255,1);
+  text-align:center;
+  font-size:1.5vw;
+  width:24%;
+  height:60h;
+  background-color:rgba(10,10,40,0.58);
+  border-width:2px;
+  border-style:solid;
+  border-color:rgba(0,0,0,0.5);
+}
+
+#box-1:hover, #box-2:hover, #box-3:hover, #box-4:hover{
+  transform:scale(1.03);
+  background-color:rgba(10,10,40,0.89);
+}
+
+.box-text-div{
+  display:flex;
+  flex-direction:column;
+  margin:0;
+  height:94%;
+  
+}
+
+.h3-class {
+  font-size:2em;
+}
+
+.box-button-div{
+  display:flex;
+  justify-content:center;
+  width:100%;
+  height:5%;
+  margin:auto;
+}
+
+
+.box-button {
+  width:100%;
+  padding:5px 0 5px 0;
+  background-color:rgba(180,180,230,1);
+  text-decoration:none;
+  color:black;
+  font-weight:bold;
+  letter-spacing:px;
+  text-transform:uppercase;
+}
+
+.box-button:hover {
+  background-color:rgba(50,50,100,0.9);
+  color:white;
+}
+
+
+
+#email-div {
+  margin-top:20vh;
+  height:40vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+  align-items:center;
+  background-color:rgba(0,0,0,0.75);
+  color:white;
+  width:60vw;
+  font-size:2.3vw;
+}
+
+#email{
+  width:30vw;
+  height:5vh;
+  padding:0 30px 0 30px;
+}
+
+::placeholder{
+  text-align:center;
+  font-size:1.3vw;
+}
+
+:hover::placeholder {
+  color:black;
+  text-align:center;
+}
+
+#submit {
+  width:15vw;
+  height:5vh;
+  border-width:0;
+  background-color:gray;
+  color:white;
+  font-size:2vw;
+  letter-spacing:1.5px;
+  cursor:pointer;
+}
+
+#submit:hover {
+  background-color:white;
+  color:black;
+  text-transform:uppercase;
+}
+
+#footer {
+  display:flex;
+  justify-content:center;
+  margin-top:20vh;
+}
+
+#footer-div {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  bottom:0vh;
+  left:0vw;
+  width:70vw;
+  height:10.8vh;
+  background-color:rgba(168,168,168,0.9);
+}
+
+.li{
+  display:inline-block;
+  list-style:none;
+  text-align:center;
+}
+
+.footer-list {
+ margin-right:3vw;
+ text-decoration:none;
+  color:black;
+  font-size:2vw;
+  padding:0.1vw;
+  border-radius:0.3vw;
+  box-shadow:inset 0 0 0.3vw black, 0 0 0.4vw black;
+}
+
+#copyright {
+  height:10.8vh;
+  font-size:2vw;
+  background-color:rgba(58,78,78,0.9);
+}
+
+  
+  
+  @media (max-width:1400px) {
+   
+    #header {
+  top:0;
+  left:0;
+  position:fixed;
+  width:100%;
+  height:11.5vh;
+  background-color:white;
+  box-shadow:0 0 10px black;
+  z-index:1;
+}
+
+#header-img {
+  width:23vw;
+  margin-top:4vh;
+  margin-left:2vw;
+  box-shadow: 0 0 20px black;
+
+}
+
+#nav-bar {
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  margin-top:4vh;
+  margin-right:2vw;
+  margin-left:0vw;  
+  width:60vw;
+  height:12.5vh;
+  background-color:white;
+  border-style:solid;
+  border-width:0vw;
+  box-shadow:0 0 10px black;
+}
+
+.nav-link {
+  text-decoration:none;
+  text-transform:uppercase;
+  background:linear-gradient(180deg,rgb(150,150,180),rgb(25,25,127),rgb(50,50,150));
+  border-radius:2vw;
+  margin-left:0vw;
+  font-family:monospace;
+  letter-spacing:1.5px;
+  font-size:2vw;
+  font-weight:bold;
+  color:white;
+  padding:1vh 2vw 1vh 2vw;
+  box-shadow:0 0 5px black;
+}
+
+.nav-link:hover {
+  color:white;
+  background:rgb(35,35,62);
+  padding:1vh 2vw 1vh 2vw;
+  text-shadow:0 0 2.5vw white, 0 0 1.5vw white;
+  box-shadow:0 0 2.5vw black, 0 0 1.5vw black;
+  transition:all ease-in-out 200ms; 
+  z-index:2;
+}
+.nav-link-a {
+  line-height:4vh;
+ }
+    
+  #nav-bar-ul {
+    padding:0vw;
+  }
+    
+    #about-div {
+  padding-top:40vh;
+}
+  
+}
+
+@media (min-width:1921px) {
+  #background {
+    position:fixed;
+    width:100%
+  }
+  
+  #header-img {
+    width:20vw;
+  }
+  
+}
+
+</style>    
+  </head>
+  
+  <body id="all">
+    
+    <div id="background-div">
+      
+      <img id="background" src="https://www.pixelstalk.net/wp-content/uploads/2016/04/Download-Ocean-waves-wallpaper-HD.jpg">
+      
+    </div>
+   
+    <main id="main">
+     
+    <header id="header">
+   
+      <img id="header-img" src="https://media.istockphoto.com/vectors/woman-surfing-vector-id178311012?b=1&k=20&m=178311012&s=170667a&w=0&h=59cuaYiHnq_DeiuFK__eHDfVbCFmbQP9vo7TfIW8dyM=" alt="logo">
+      
+      <nav id="nav-bar">
+      
+        <ul id="nav-bar-ul">
+          <li class="nav-link-a"><a class="nav-link" href="#about-div">about</a></li>
+          <li class="nav-link-a"><a class="nav-link" href="#video-div">product</a></li>
+          <li class="nav-link-a"><a class="nav-link" href="#flex-box">pricing</a></li>
+          <li class="nav-link-a"><a class="nav-link" href="#form">subscribe</a></li>
+       
+        </ul>
+      
+      </nav>
+      
+     </header>
+         
+      <div id="about-div">
+        <div id="about-div-2">
+        <span id="about-us-span"><h1>About us</h1></span>
+    
+        <p>We are friends who wanted to share skill (which we were accumulating more then decade) of surfing with begginers who are willing to have leassons from professionals</p>
+        </div>
+      </div>
+      
+     <div id="video-div">
+       
+       <div id="video-div-2">
+       <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/KCLWvAcPcPk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       </div>
+     </div>
+     
+     <div id="flex-box">
+       
+       <div id="box-1" class="box">
+         
+         <div class="box-text-div">
+         <h3 class="h3-class">In Person - 3 hours long course</h3>
+           <hr style="width:8em;">
+         <p>We will meet you at Waikiki, Hawai beach. Here you will learn:</p>
+         <ul class="box-list">
+           <li>Basic theory.</li>
+           <li>How to stand on the board.</li>
+           <li>Swiming while on the board.</li>
+         </ul>
+       </div>
+         
+         <div class="box-button-div">
+         <a class="box-button" href="#">Select - 1 000 $</a>
+       </div>
+         
+       </div>
+       
+       <div id="box-2" class="box">
+         
+         <div class="box-text-div">
+         <h3 class="h3-class">Full Course In Preson - 3 days long course</h3>
+           <hr style="width:8em;">
+         <p>We will meet you at any beach. which? -it's your choice. from our side we can recommend you to choose:</p>
+         <ul class="box-list">
+           <li>Waikiki, Hawaii</li>
+           <li>San Onofre, California</li>
+           <li>County Line, California</li>
+           <li>Morro Bay, California</li>           
+           <li>La Jolla Shores, California</li>
+           <li>Cocoa Beach, Florida</li>
+           <li>Cowell's, California</li>
+           <li>90th Street, Rockaways, New York</li>
+         </ul>
+       </div>
+         
+         <div class="box-button-div">
+         <a class="box-button" href="#">Select - 3 000 $</a>
+       </div>
+         
+       </div>
+       
+       <div id="box-3" class="box">
+         
+         <div class="box-text-div">
+         <h3 class="h3-class">Remote - 3 hourse long course</h3>
+           <hr style="width:8em;">
+         <p>you will learn:</p>
+         <ul class="box-list">
+           <li>Basic theory.</li>
+           <li>Basic movement.</li>
+           <li>Where is the better to surf.</li>
+         </ul>
+         </div>
+           
+         <div class="box-button-div">
+         <a class="box-button" href="#">Select - 300 $</a>
+       </div>
+         
+       </div>
+     
+       <div id="box-4" class="box">
+         
+         <div class="box-text-div">
+         <h3 class="h3-class">Full Course Remote - 3 days long course</h3>
+           <hr style="width:8em;">
+         <p>you will learn:</p>
+         <ul class="box-list">
+           <li>Basic theory.</li>
+           <li>Basic movement.</li>
+           <li>Where is the better to surf.</li>
+           <li class="plus">+</li>
+           <li>you will get guidence to how to stand on the board and swim while lying on the bord by professionals.</li>
+         </ul>
+         </div>
+        
+       <div class="box-button-div">
+         <a class="box-button" href="#">Select - 900 $</a>
+         </div>
+         
+      </div>
+     
+     </div>
+     
+     <form id="form" action="https://www.freecodecamp.com/email-submit">
+       
+       <div id="email-div">
+       
+         <h4>For subscription to our product leave your email</h4>
+          
+           <input type="email" id="email" name="email" placeholder="Enter your email">
+         
+         
+         
+           <input type="submit" id="submit" value="SEND" name="submit">
+        
+         
+       </div>
+       
+     </form>
+     
+    </main>
+    
+    <footer id="footer">
+      <div id="footer-div">
+       
+        <ul>
+          <li class="li"><a class="footer-list" href="https://codepen.io/your-work" target="_blank">Privacy</a></li>
+          <li class="li"><a class="footer-list" href="https://codepen.io/your-work" target="_blank">Terms</a></li>
+          <li class="li"><a class="footer-list" href="https://codepen.io/your-work" target="_blank">Contact</a></li>
+        </ul>
+        <div id="copyright">
+         <p>&copy2021</p>
+        </div>
+        </div>
+    
+    </footer>
+    
+  </body>
+  
+</html>
